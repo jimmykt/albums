@@ -1,0 +1,48 @@
+@use "../../styles/_mixins.scss" as *;
+
+.header {
+  display: flex;
+  width: 100%;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+
+  &__logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 3rem;
+  }
+
+  &__form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+
+  &__search-icon {
+    position: absolute;
+    padding-right: 0.5rem;
+    background-color: transparent;
+    right: 0;
+  }
+
+  &__search-imput {
+    width: 100%;
+    background-color: white;
+    border: 0.0625rem solid white;
+    outline: none !important;
+    height: 2.4rem;
+    padding-left: 1.375rem;
+    color: black;
+    border-radius: 0.35rem;
+
+    &:focus {
+      border: 0.155rem solid rgb(66, 136, 143);
+    }
+  }
+}
