@@ -5,13 +5,16 @@ import pexels from "../../api/pexels_API";
 import SearchSVG from "../../assets/icons/search.svg";
 import UserComponent from "./User";
 import Login from "../Login/Login";
+import SignUp from "../SignUp/SignUp";
 
 import { useSelector, useDispatch } from "react-redux";
 import { storeImages } from "../../state/actions/imagesAction";
+
 function Header() {
   const dispatch = useDispatch();
   const Images = useSelector((state) => state.images);
   const [showLogin, setShowLogin] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   const searchClick = (e) => {
     e.preventDefault();
@@ -30,7 +33,10 @@ function Header() {
 
   const userClick = () => {
     setShowLogin(!showLogin);
-    console.log(showLogin);
+  };
+  const signUp = () => {
+    userClick();
+    setShowSignUp(!showSignUp);
   };
 
   return (
@@ -56,7 +62,8 @@ function Header() {
         />
       </form>
 
-      {showLogin ? <Login /> : ""}
+      {showLogin ? <Login toggleSignUp={signUp} /> : ""}
+      {showSignUp ? <SignUp /> : ""}
     </header>
   );
 }

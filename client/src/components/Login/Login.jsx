@@ -1,7 +1,7 @@
 import "./Login.scss";
 import React, { useState, useRef } from "react";
 
-function Login() {
+function Login({ toggleSignup }) {
   const [loginUser, setLoginUser] = useState({
     email: "",
     password: "",
