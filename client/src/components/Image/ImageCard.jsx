@@ -1,7 +1,9 @@
-function ImageCard() {
+function ImageCard({ Image }) {
+  console.log(Image);
+
   return (
     <div>
-      {/* <img ref={this.imageRef} alt={photographer} src={src.medium} /> */}
+      <img alt={Image.alt} src={Image.src.medium} />
     </div>
   );
 }

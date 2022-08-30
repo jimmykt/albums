@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import storeUser from "./storeUserReducer";
+import imagesReducer from "./imagesReducer";
 
 const allReducers = combineReducers({
-  User: storeUser,
+  images: imagesReducer,
 });
 
 export default allReducers;
