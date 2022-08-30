@@ -10,6 +10,7 @@ function Header() {
   const [found, setFound] = useState(0);
 
   const searchClick = (e) => {
+    e.preventDefault();
     setSearch(e.target.value);
     onSearchSubmit(e.target.value);
   };
