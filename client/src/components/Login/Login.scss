@@ -1,0 +1,46 @@
+.login {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 5rem;
+  width: 20rem;
+
+  &__form {
+    background-color: white;
+    padding: 0.5rem;
+  }
+  &__username {
+    margin-bottom: 0.5rem;
+  }
+
+  &__button {
+    width: 5rem;
+    border-radius: 1.2rem;
+    outline: none;
+    padding: 0.35rem 0.5;
+    background-color: rgb(31, 187, 215);
+    border: 0px;
+    margin-top: 0.25rem;
+  }
+
+  &__button-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.input {
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 1.2rem;
+  padding-left: 1rem;
+  background-color: black;
+  color: white;
+  outline: none;
+
+  &:focus {
+    border: solid 2px #0095f6;
+  }
+}
