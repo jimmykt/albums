@@ -7,12 +7,12 @@ import UserComponent from "./User";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { storeImages } from "../../state/actions/imagesAction";
 
 function Header() {
   const dispatch = useDispatch();
-  const Images = useSelector((state) => state.images);
+
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
 
@@ -62,7 +62,7 @@ function Header() {
         />
       </form>
 
-      {showLogin ? <Login toggleSignUp={signUp} /> : ""}
+      {showLogin ? <Login /> : ""}
       {showSignUp ? <SignUp /> : ""}
     </header>
   );

@@ -1,12 +1,17 @@
 import "./Login.scss";
 import React, { useState, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleSignUp } from "../../state/actions/userToggles";
 
-function Login({ toggleSignup }) {
+function Login() {
+  const dispatch = useDispatch();
+
   const [loginUser, setLoginUser] = useState({
     email: "",
     password: "",
   });
   const inputReference = useRef(null);
+  const isSignUp = useSelector((state) => state.isSignUp);
 
   return (
     <div className="login">
@@ -34,7 +39,12 @@ function Login({ toggleSignup }) {
         />
         <div className="login__button-container">
           <button className="button login__button">login</button>
-          <button className="button login__button">SignUp</button>
+          <button
+            className="button login__button"
+            onClick={() => dispatch(toggleSignUp())}
+          >
+            SignUp
+          </button>
         </div>
       </form>
     </div>
