@@ -7,19 +7,20 @@ import UserComponent from "./User";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { storeImages } from "../../state/actions/imagesAction";
 
 function Header() {
   const dispatch = useDispatch();
 
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
+  const isLoginToggle = useSelector((state) => state.isLoginToggle);
+  const isSignUpToggle = useSelector((state) => state.isSignUpToggle);
 
   const searchClick = (e) => {
     e.preventDefault();
     onSearchSubmit(e.target[0].value);
   };
+
   const onSearchSubmit = async (term) => {
     const response = await pexels.get(`/v1/search`, {
       params: {
@@ -31,19 +32,11 @@ function Header() {
     dispatch(storeImages(response.data.photos));
   };
 
-  const userClick = () => {
-    setShowLogin(!showLogin);
-  };
-  const signUp = () => {
-    userClick();
-    setShowSignUp(!showSignUp);
-  };
-
   return (
     <header className="header">
       <div className="header__logo-container">
         <h1 className="header__logo-title">Albums</h1>
-        <UserComponent userClick={userClick} />
+        <UserComponent />
       </div>
 
       <form className="header__form" onSubmit={searchClick}>
@@ -62,8 +55,8 @@ function Header() {
         />
       </form>
 
-      {showLogin ? <Login /> : ""}
-      {showSignUp ? <SignUp /> : ""}
+      {isLoginToggle ? <Login /> : ""}
+      {isSignUpToggle ? <SignUp /> : ""}
     </header>
   );
 }

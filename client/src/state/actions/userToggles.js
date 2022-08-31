@@ -1,11 +1,11 @@
 export const toggleSignUp = () => {
   return {
-    type: "TOGGLE",
+    type: "TOGGLE_SIGNUP",
   };
 };
 
 export const toggleLogin = () => {
   return {
-    type: "TOGGLE",
+    type: "TOGGLE_LOGIN",
   };
 };

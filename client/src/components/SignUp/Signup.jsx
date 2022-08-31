@@ -1,7 +1,11 @@
 import "./SignUp.scss";
 import React, { useState, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleSignUp } from "../../state/actions/userToggles";
 
 function SignUp() {
+  const dispatch = useDispatch();
+
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",
@@ -10,8 +14,13 @@ function SignUp() {
     confirmPassword: "",
   });
 
+  const submitForm = (e) => {
+    e.preventDefault();
+    console.log(newUser);
+  };
   const inputReference = useRef(null);
 
+  console.log(newUser);
   return (
     <div className="Signup">
       <form className="Signup__form">
@@ -63,8 +72,22 @@ function SignUp() {
             setNewUser({ ...newUser, confirmPassword: e.target.value })
           }
         />
-        <button className="Signup__button">Sign Up</button>
-        <span className="Signup__response"></span>
+        <button
+          className="Signup__button"
+          onClick={(e) => {
+            submitForm(e);
+          }}
+        >
+          Sign Up
+        </button>
+        <button
+          className="Signup__button-cancel"
+          onClick={() => {
+            dispatch(toggleSignUp());
+          }}
+        >
+          x
+        </button>
       </form>
     </div>
   );

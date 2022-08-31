@@ -1,17 +1,25 @@
 import "./Login.scss";
 import React, { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleSignUp } from "../../state/actions/userToggles";
+import { toggleLogin, toggleSignUp } from "../../state/actions/userToggles";
 
 function Login() {
   const dispatch = useDispatch();
+
+  const isSignUpToggle = useSelector((state) => state.isSignUpToggle);
 
   const [loginUser, setLoginUser] = useState({
     email: "",
     password: "",
   });
+
+  const signUpClicked = (e) => {
+    e.preventDefault();
+    dispatch(toggleLogin());
+    dispatch(toggleSignUp());
+  };
+
   const inputReference = useRef(null);
-  const isSignUp = useSelector((state) => state.isSignUp);
 
   return (
     <div className="login">
@@ -41,7 +49,9 @@ function Login() {
           <button className="button login__button">login</button>
           <button
             className="button login__button"
-            onClick={() => dispatch(toggleSignUp())}
+            onClick={(e) => {
+              signUpClicked(e);
+            }}
           >
             SignUp
           </button>
