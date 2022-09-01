@@ -1,12 +1,12 @@
 import "./Login.scss";
 import React, { useState, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleLogin, toggleSignUp } from "../../state/actions/userToggles";
+import { API } from "../../api/API";
+import axios from "axios";
 
 function Login() {
   const dispatch = useDispatch();
-
-  const isSignUpToggle = useSelector((state) => state.isSignUpToggle);
 
   const [loginUser, setLoginUser] = useState({
     email: "",
@@ -19,6 +19,18 @@ function Login() {
     dispatch(toggleSignUp());
   };
 
+  const loginCLick = (e) => {
+    e.preventDefault();
+    axios
+      .post(API + "/users/login", loginUser)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.token);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const inputReference = useRef(null);
 
   return (
@@ -46,7 +58,14 @@ function Login() {
           }
         />
         <div className="login__button-container">
-          <button className="button login__button">login</button>
+          <button
+            className="button login__button"
+            onClick={(e) => {
+              loginCLick(e);
+            }}
+          >
+            login
+          </button>
           <button
             className="button login__button"
             onClick={(e) => {
