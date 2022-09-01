@@ -8,7 +8,7 @@ function HomePage() {
     axios
       .get(API + "/users/getallusers")
       .then((res) => {
-        console.log(res);
+        console.log(res.data.users);
         console.log("hi");
       })
       .catch((err) => {

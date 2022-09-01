@@ -1,7 +1,9 @@
 import "./SignUp.scss";
 import React, { useState, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleSignUp } from "../../state/actions/userToggles";
+import { API } from "../../api/API";
+import axios from "axios";
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -16,11 +18,17 @@ function SignUp() {
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(newUser);
+    axios
+      .post(API + "/users/signup", newUser)
+      .then((res) => {
+        console.log(res.data.users);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   const inputReference = useRef(null);
 
-  console.log(newUser);
   return (
     <div className="Signup">
       <form className="Signup__form">
