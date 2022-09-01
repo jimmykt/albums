@@ -1,7 +1,21 @@
 import "./User.scss";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { toggleLogin, toggleSignUp } from "../../state/actions/userToggles";
 
 function User() {
-  return <div className="User"></div>;
+  const dispatch = useDispatch();
+
+  return (
+    <div
+      className="User"
+      onClick={() => {
+        dispatch(toggleLogin());
+      }}
+    >
+      login
+    </div>
+  );
 }
 
 export default User;

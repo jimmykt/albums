@@ -4,14 +4,21 @@ import React, { useState } from "react";
 import pexels from "../../api/pexels_API";
 import SearchSVG from "../../assets/icons/search.svg";
 import UserComponent from "./User";
+import Login from "../Login/Login";
+import SignUp from "../SignUp/SignUp";
+
+import { useSelector, useDispatch } from "react-redux";
+import { storeImages } from "../../state/actions/imagesAction";
 
 function Header() {
-  const [search, setSearch] = useState("");
-  const [found, setFound] = useState(0);
+  const dispatch = useDispatch();
+
+  const isLoginToggle = useSelector((state) => state.isLoginToggle);
+  const isSignUpToggle = useSelector((state) => state.isSignUpToggle);
 
   const searchClick = (e) => {
-    setSearch(e.target.value);
-    onSearchSubmit(e.target.value);
+    e.preventDefault();
+    onSearchSubmit(e.target[0].value);
   };
 
   const onSearchSubmit = async (term) => {
@@ -22,28 +29,34 @@ function Header() {
         page: 1,
       },
     });
-    setFound(response.data.photos);
-    console.log(found);
+    dispatch(storeImages(response.data.photos));
   };
 
   return (
     <header className="header">
       <div className="header__logo-container">
         <h1 className="header__logo-title">Albums</h1>
+        <UserComponent />
       </div>
 
-      <form className="header__form">
+      <form className="header__form" onSubmit={searchClick}>
         <input
           className="header__search-imput"
           type="text"
           name="name"
           placeholder="Search"
-          onChange={searchClick}
         ></input>
-        <img className="header__search-icon" src={SearchSVG} alt="search"></img>
+
+        <input
+          className="header__search-icon"
+          type="image"
+          src={SearchSVG}
+          alt="Submit Form"
+        />
       </form>
 
-      <UserComponent />
+      {isLoginToggle ? <Login /> : ""}
+      {isSignUpToggle ? <SignUp /> : ""}
     </header>
   );
 }

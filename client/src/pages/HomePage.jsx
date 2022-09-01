@@ -1,7 +1,27 @@
 import "./HomePage.scss";
+import ImageList from "../components/Image/ImageList";
+import axios from "axios";
+import { API } from "../api/API.js";
 
 function HomePage() {
-  return <main>Home Page</main>;
+  const getUser = () => {
+    axios
+      .get(API + "/users/getallusers")
+      .then((res) => {
+        console.log(res.data.users);
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log("no");
+      });
+  };
+
+  return (
+    <main>
+      {getUser()}
+      <ImageList />
+    </main>
+  );
 }
 
 export default HomePage;
