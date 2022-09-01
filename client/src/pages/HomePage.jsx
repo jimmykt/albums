@@ -13,8 +13,8 @@ function HomePage() {
     if (!token) {
       return;
     }
-    console.log(token);
-    console.log(isLoggedin);
+    // console.log(token);
+    // console.log(isLoggedin);
 
     axios
       .get(API + "/users/currentuser", {
@@ -23,7 +23,7 @@ function HomePage() {
         },
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       })
       .catch((error) => {
         console.log(error);

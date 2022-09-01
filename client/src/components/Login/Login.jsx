@@ -31,6 +31,7 @@ function Login() {
         console.log(res);
         localStorage.setItem("token", res.data.token);
         dispatch(isLogged());
+        dispatch(toggleLogin());
       })
       .catch((err) => {
         console.log(err);
