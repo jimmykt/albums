@@ -7,4 +7,6 @@ CREATE TABLE users(
 );
 
 
-INSERT INTO users (first_name, last_name, email, password_)VALUES ('jimmy', 'tam', '123','321');
+INSERT INTO users (first_name, last_name, email, password_)VALUES ('jimmy', 'tam', '222','222');
+INSERT INTO users (first_name, last_name, email, password_)VALUES ('jon', 'morris', '123','123');
+INSERT INTO users (first_name, last_name, email, password_)VALUES ('sally', 'clark', '111','111');
