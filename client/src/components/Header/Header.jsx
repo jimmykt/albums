@@ -1,6 +1,4 @@
 import "./Header.scss";
-
-import React, { useState } from "react";
 import pexels from "../../api/pexels_API";
 import SearchSVG from "../../assets/icons/search.svg";
 import UserComponent from "./User";

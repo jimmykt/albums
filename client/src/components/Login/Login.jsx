@@ -1,7 +1,12 @@
 import "./Login.scss";
 import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { toggleLogin, toggleSignUp } from "../../state/actions/userToggles";
+import {
+  toggleLogin,
+  toggleSignUp,
+  isLogged,
+} from "../../state/actions/userToggles";
+import { storeUser } from "../../state/actions/User";
 import { API } from "../../api/API";
 import axios from "axios";
 
@@ -24,8 +29,11 @@ function Login() {
     axios
       .post(API + "/users/login", loginUser)
       .then((res) => {
-        console.log(res);
+        console.log(res.data.user);
         localStorage.setItem("token", res.data.token);
+        dispatch(isLogged());
+        dispatch(toggleLogin());
+        dispatch(storeUser(res.data.user));
       })
       .catch((err) => {
         console.log(err);

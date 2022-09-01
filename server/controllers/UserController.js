@@ -73,3 +73,21 @@ module.exports.loginUser = async (req, res) => {
   });
   res.json({ auth: true, token: token, user: user });
 };
+
+module.exports.getCurrentUser = async (req, res) => {
+  if (!req.headers.authorization) {
+    return res.status(401).send("Please login");
+  }
+
+  const authToken = req.headers.authorization.split(" ")[1];
+
+  const decoded = jwt.verify(authToken, process.env.JWT_KEY, (err, decoded) => {
+    if (err) {
+      console.log(err);
+      return res.status(401).send("Invalid auth token");
+    }
+    return decoded;
+  });
+  console.log(decoded);
+  res.json({ user: decoded });
+};

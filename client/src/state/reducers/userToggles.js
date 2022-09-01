@@ -15,3 +15,12 @@ export const toggleLoginReducer = (state = false, action) => {
       return state;
   }
 };
+
+export const isLogged = (state = false, action) => {
+  switch (action.type) {
+    case "IS_LOGGED":
+      return !state;
+    default:
+      return state;
+  }
+};

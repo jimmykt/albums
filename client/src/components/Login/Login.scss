@@ -1,3 +1,5 @@
+@use "../../styles/_mixins.scss" as *;
+
 .login {
   position: absolute;
   top: 0;
@@ -38,13 +40,7 @@
 }
 
 .input {
-  padding: 0.5rem;
-  width: 100%;
-  border-radius: 1.2rem;
-  padding-left: 1rem;
-  background-color: black;
-  color: white;
-  outline: none;
+  @include input;
 
   &:focus {
     border: solid 2px #0095f6;
