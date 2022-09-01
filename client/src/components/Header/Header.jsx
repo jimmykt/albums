@@ -5,7 +5,7 @@ import pexels from "../../api/pexels_API";
 import SearchSVG from "../../assets/icons/search.svg";
 import UserComponent from "./User";
 import Login from "../Login/Login";
-import SignUp from "../SignUp/SignUp";
+import SignUp from "../SignUp/Signup";
 
 import { useSelector, useDispatch } from "react-redux";
 import { storeImages } from "../../state/actions/imagesAction";
