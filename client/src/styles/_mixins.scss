@@ -18,6 +18,8 @@
   background-color: black;
   color: white;
   outline: none;
+  border: 2px solid black;
+  margin-bottom: 0.5rem;
 
   &:focus {
     border: solid 2px #0095f6;

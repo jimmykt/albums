@@ -37,10 +37,12 @@ function HomePage() {
       </main>
     );
   } else {
-    <main>
-      <ImageList />
-      <p>please login</p>
-    </main>;
+    return (
+      <main>
+        <ImageList />
+        <p>please login</p>
+      </main>
+    );
   }
 }
 
