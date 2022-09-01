@@ -9,3 +9,9 @@ export const toggleLogin = () => {
     type: "TOGGLE_LOGIN",
   };
 };
+
+export const isLogged = () => {
+  return {
+    type: "IS_LOGGED",
+  };
+};
