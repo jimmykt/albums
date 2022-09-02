@@ -48,6 +48,11 @@ module.exports.createUser = async (req, res) => {
 module.exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
 
+  if (email.length < 0 || password.length < 0) {
+    res.status(400).send("invalid login!");
+    return;
+  }
+
   const allUsers = await db.query("SELECT * FROM users WHERE email = $1", [
     email,
   ]);

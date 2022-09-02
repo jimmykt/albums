@@ -32,13 +32,13 @@ function HomePage() {
 
   if (isLoggedin) {
     return (
-      <main>
+      <main className="home">
         <ImageList />
       </main>
     );
   } else {
     return (
-      <main>
+      <main className="home">
         <ImageList />
         <p>please login</p>
       </main>

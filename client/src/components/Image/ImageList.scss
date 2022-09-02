@@ -1,0 +1,12 @@
+.ImageList {
+  background-color: rgb(1, 53, 84);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-flow: row wrap;
+
+  display: flex;
+  flex-flow: wrap;
+  text-align: center;
+  padding-top: 1rem;
+}
