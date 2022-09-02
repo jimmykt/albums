@@ -1,4 +1,5 @@
 import "./ImageCard.scss";
+import heart from "../../assets/icons/heart.svg";
 
 function ImageCard({ Image }) {
   console.log(Image);
@@ -10,7 +11,10 @@ function ImageCard({ Image }) {
         alt={Image.alt}
         src={Image.src.medium}
       />
-      <p className="imageCard__photographer">By: {Image.photographer}</p>
+      <div className="imageCard__info-container">
+        <p className="imageCard__photographer">By: {Image.photographer}</p>
+        <img className="imageCard__like-svg" src={heart} alt="heart" />
+      </div>
     </div>
   );
 }
