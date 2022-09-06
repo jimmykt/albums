@@ -2,11 +2,12 @@ import "./User.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleLogin, isLogged } from "../../state/actions/userToggles";
 import { logOutUser } from "../../state/actions/User";
+import { Link } from "react-router-dom";
+import dashboard from "../../assets/icons/dashboard.png";
 
 function User() {
   const dispatch = useDispatch();
   const isLoggedin = useSelector((state) => state.isLogged);
-  const User = useSelector((state) => state.User);
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -27,14 +28,11 @@ function User() {
     );
   } else {
     return (
-      <div
-        className="User-logout"
-        onClick={() => {
-          logout();
-        }}
-      >
-        LogOut
-      </div>
+      <Link to="/dashboard" className="link">
+        <div className="dash">
+          <img className="dash__img" src={dashboard} alt="dashboard" />
+        </div>
+      </Link>
     );
   }
 }

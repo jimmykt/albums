@@ -7,6 +7,7 @@ import SignUp from "../SignUp/Signup";
 
 import { useSelector, useDispatch } from "react-redux";
 import { storeImages } from "../../state/actions/imagesAction";
+import { Link } from "react-router-dom";
 
 function Header() {
   const dispatch = useDispatch();
@@ -34,7 +35,9 @@ function Header() {
   return (
     <header className="header">
       <div className="header__logo-container">
-        <h1 className="header__logo-title">Albums</h1>
+        <Link to="/" className="link">
+          <h1 className="header__logo-title">Albums</h1>
+        </Link>
         <UserComponent />
       </div>
 
