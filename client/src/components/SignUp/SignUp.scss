@@ -29,6 +29,7 @@
       opacity: 1;
     }
   }
+
   &__button-cancel {
     background-color: red;
     padding: 0.5rem 0.7rem;
@@ -41,5 +42,9 @@
     &:hover {
       opacity: 1;
     }
+  }
+
+  &__message {
+    color: red;
   }
 }

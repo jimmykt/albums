@@ -16,16 +16,23 @@ function SignUp() {
     confirmPassword: "",
   });
 
+  const [signupMessage, setSignupMessage] = useState(0);
+
   const submitForm = (e) => {
     e.preventDefault();
-    axios
-      .post(API + "/users/signup", newUser)
-      .then((res) => {
-        console.log(res.data.users);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (newUser.password === newUser.confirmPassword) {
+      axios
+        .post(API + "/users/signup", newUser)
+        .then((res) => {
+          console.log(res.data.users);
+        })
+        .catch((err) => {
+          console.log(err.response);
+          setSignupMessage(err.response.data);
+        });
+    } else {
+      setSignupMessage("Password do not match");
+    }
   };
   const inputReference = useRef(null);
 
@@ -97,6 +104,8 @@ function SignUp() {
           x
         </button>
       </form>
+
+      <p className="Signup__message"> {signupMessage ? signupMessage : ""}</p>
     </div>
   );
 }

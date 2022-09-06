@@ -8,11 +8,8 @@ function User() {
   const isLoggedin = useSelector((state) => state.isLogged);
   const User = useSelector((state) => state.User);
 
-  console.log("isLogged: " + isLoggedin);
-  console.log("User: ");
-  console.log(User);
-
   const logout = () => {
+    localStorage.removeItem("token");
     dispatch(isLogged());
     dispatch(logOutUser());
   };
