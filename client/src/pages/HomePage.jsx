@@ -24,15 +24,12 @@ function HomePage() {
         },
       })
       .then((res) => {
-        console.log(res);
         if (Object.keys(User).length === 0) {
           dispatch(storeUser(res.data.user));
         }
         if (!isLoggedin) {
           dispatch(isLogged());
         }
-        console.log(User);
-        console.log(isLoggedin);
       })
       .catch((error) => {
         console.log(error);

@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 
 import imagesReducer from "./imagesReducer";
+import liked from "./likedReducers";
+
 import {
   toggleSignUpReducer,
   toggleLoginReducer,
@@ -14,6 +16,7 @@ const allReducers = combineReducers({
   isLoginToggle: toggleLoginReducer,
   isLogged,
   User,
+  liked,
 });
 
 export default allReducers;

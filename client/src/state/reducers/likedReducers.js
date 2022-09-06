@@ -1,6 +1,6 @@
-export const User = (state = {}, action) => {
+export const liked = (state = {}, action) => {
   switch (action.type) {
-    case "STORE_USER":
+    case "LIKE_IMG":
       return (state = action.payload);
     case "LOGOUT":
       return (state = {});
@@ -9,4 +9,4 @@ export const User = (state = {}, action) => {
   }
 };
 
-export default User;
+export default liked;

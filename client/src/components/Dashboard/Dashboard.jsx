@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 function Header() {
   const dispatch = useDispatch();
   const User = useSelector((state) => state.User);
+  console.log(User);
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -15,12 +16,16 @@ function Header() {
     dispatch(logOutUser());
   };
 
+  const UpperCaseFirst = (string) => {
+    if (string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  };
   return (
     <div className="dashboard">
       <div className="dashboard__container">
         <h1 className="dashboard__name">
-          {User.first_name.charAt(0).toUpperCase() + User.first_name.slice(1)}{" "}
-          {User.last_name.charAt(0).toUpperCase() + User.last_name.slice(1)}{" "}
+          {UpperCaseFirst(User.first_name)} {UpperCaseFirst(User.last_name)}{" "}
           Dashboard
         </h1>
         <Link to="/" className="link">
@@ -29,6 +34,7 @@ function Header() {
           </button>
         </Link>
       </div>
+      <button className="dashboard__button">Liked Photos</button>
     </div>
   );
 }

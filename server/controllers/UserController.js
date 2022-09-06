@@ -68,6 +68,7 @@ module.exports.loginUser = async (req, res) => {
   if (!isPasswordCorrect) return res.status(400).json("Invalid password");
 
   const user = {
+    user_id: allUsers.rows[0].id,
     first_name: allUsers.rows[0].first_name,
     last_name: allUsers.rows[0].last_name,
     email: allUsers.rows[0].email,
