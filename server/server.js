@@ -11,6 +11,8 @@ app.use(express.json());
 
 const userRoutes = require("./routes/UserRoutes");
 app.use("/users", userRoutes);
+const imageRoutes = require("./routes/ImageRoutes");
+app.use("/images", imageRoutes);
 
 app.get("/", (req, res) => {
   res.send("welcome to albums");

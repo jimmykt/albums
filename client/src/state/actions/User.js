@@ -1,6 +1,6 @@
 export const storeUser = (user) => {
   return {
-    type: "STORE",
+    type: "STORE_USER",
     payload: user,
   };
 };

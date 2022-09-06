@@ -1,5 +1,7 @@
+@use "../../styles/_variables.scss" as *;
+
 .User {
-  background-color: black;
+  background-color: $primary;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -12,9 +14,9 @@
   cursor: pointer;
 }
 
-.User-logout {
+.dash {
   font-size: 0.7rem;
-  background-color: black;
+  background-color: $primary;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -25,4 +27,18 @@
   padding-bottom: 0.5rem;
   position: relative;
   cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__img {
+    width: 2rem;
+    background-color: transparent;
+    margin-top: 0.4rem;
+  }
+}
+
+.link {
+  text-decoration: none;
 }

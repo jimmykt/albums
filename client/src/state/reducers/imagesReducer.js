@@ -1,8 +1,8 @@
 export const imagesReducer = (state = {}, action) => {
   switch (action.type) {
-    case "STORE":
+    case "STORE_IMAGES":
       return (state = action.payload);
-    case "REMOVE":
+    case "REMOVE_IMAGES":
       return (state = {});
     default:
       return state;

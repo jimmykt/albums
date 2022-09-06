@@ -1,12 +1,12 @@
 export const storeImages = (data) => {
   return {
-    type: "STORE",
+    type: "STORE_IMAGES",
     payload: data,
   };
 };
 
 export const removeImages = () => {
   return {
-    type: "REMOVE",
+    type: "REMOVE_IMAGES",
   };
 };

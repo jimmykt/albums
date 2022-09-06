@@ -7,6 +7,7 @@ import SignUp from "../SignUp/Signup";
 
 import { useSelector, useDispatch } from "react-redux";
 import { storeImages } from "../../state/actions/imagesAction";
+import { Link } from "react-router-dom";
 
 function Header() {
   const dispatch = useDispatch();
@@ -16,14 +17,15 @@ function Header() {
 
   const searchClick = (e) => {
     e.preventDefault();
-    onSearchSubmit(e.target[0].value);
+    console.log(e.target.value);
+    searchAPI(e.target.value);
   };
 
-  const onSearchSubmit = async (term) => {
+  const searchAPI = async (term) => {
     const response = await pexels.get(`/v1/search`, {
       params: {
         query: term,
-        per_page: 15,
+        per_page: 20,
         page: 1,
       },
     });
@@ -33,7 +35,9 @@ function Header() {
   return (
     <header className="header">
       <div className="header__logo-container">
-        <h1 className="header__logo-title">Albums</h1>
+        <Link to="/" className="link">
+          <h1 className="header__logo-title">Albums</h1>
+        </Link>
         <UserComponent />
       </div>
 
@@ -43,6 +47,7 @@ function Header() {
           type="text"
           name="name"
           placeholder="Search"
+          onChange={searchClick}
         ></input>
 
         <input

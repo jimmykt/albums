@@ -1,11 +1,9 @@
 .imageCard {
   display: flex;
   flex-direction: column;
-  background-color: rgb(103, 110, 110);
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  background-color: rgb(103, 110, 110, 0.4);
+  margin-bottom: 1rem;
   border-radius: 1rem;
-  box-shadow: 0 0 50px #00000050;
   text-align: center;
   height: fit-content;
 
@@ -19,17 +17,21 @@
     flex-direction: column;
     justify-content: center;
     padding: 0rem 1rem;
+    background-color: transparent;
   }
 
   &__photographer {
     margin-top: 0.55rem;
     background-color: inherit;
-    font-size: 1.5rem;
+    font-size: 0.8rem;
+    background-color: transparent;
   }
 
   &__like-svg {
     width: 2rem;
     background-color: inherit;
+    background-color: transparent;
+    margin-bottom: 0.25rem;
     fill: red;
     filter: red;
     cursor: pointer;

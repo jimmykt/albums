@@ -1,0 +1,34 @@
+@use "../../styles/_mixins.scss" as *;
+@use "../../styles/_variables.scss" as *;
+
+.dashboard {
+  padding: 0rem $side-pading-desktop;
+  padding-top: 2rem;
+
+  &__container {
+    display: flex;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+  }
+
+  &__logoutbutton {
+    background-color: #904e4e;
+    border-radius: 1.2rem;
+    padding: 0.25rem 0.7rem;
+    border: 0px;
+    outline: none;
+    opacity: 0.7;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__button {
+    @include button;
+  }
+}

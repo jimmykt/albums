@@ -1,5 +1,5 @@
 @use "../../styles/_mixins.scss" as *;
-
+@use "../../styles/_variables.scss" as *;
 .Signup {
   position: absolute;
   top: 0;
@@ -13,6 +13,7 @@
 
   &__input {
     @include input;
+    background-color: $primary;
   }
 
   &__button {
@@ -29,6 +30,7 @@
       opacity: 1;
     }
   }
+
   &__button-cancel {
     background-color: red;
     padding: 0.5rem 0.7rem;
@@ -41,5 +43,9 @@
     &:hover {
       opacity: 1;
     }
+  }
+
+  &__message {
+    color: red;
   }
 }
