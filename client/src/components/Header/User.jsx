@@ -1,19 +1,12 @@
 import "./User.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleLogin, isLogged } from "../../state/actions/userToggles";
-import { logOutUser } from "../../state/actions/User";
+import { toggleLogin } from "../../state/actions/userToggles";
 import { Link } from "react-router-dom";
 import dashboard from "../../assets/icons/dashboard.png";
 
 function User() {
   const dispatch = useDispatch();
   const isLoggedin = useSelector((state) => state.isLogged);
-
-  const logout = () => {
-    localStorage.removeItem("token");
-    dispatch(isLogged());
-    dispatch(logOutUser());
-  };
 
   if (!isLoggedin) {
     return (

@@ -1,5 +1,13 @@
+
+CREATE TABLE liked (
+    id BIGSERIAL UNIQUE NOT NULL PRIMARY KEY,
+    user_id INT NOT NULL,
+    image_id INT NOT NULL
+);
+
+
 CREATE TABLE users (
-    id BIGSERIAL NOT NULL PRIMARY KEY,
+    id BIGSERIAL UNIQUE NOT NULL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(200) NOT NULL,
@@ -13,11 +21,10 @@ INSERT INTO users (first_name, last_name, email, password_)VALUES ('jon', 'morri
 INSERT INTO users (first_name, last_name, email, password_)VALUES ('sally', 'clark', '333','333');
 
 
-CREATE TABLE liked (
-    user_id INT PRIMARY KEY NOT NULL,
-    image_id VARCHAR(50) NOT NULL
-);
-
 SELECT * FROM liked;
 
 SELECT * FROM users;
+
+
+drop table users;
+drop table liked;

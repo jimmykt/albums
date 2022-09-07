@@ -4,7 +4,7 @@ import "./ImageList.scss";
 
 function ImageList() {
   const Images = useSelector((state) => state.images);
-
+  console.log(Images);
   if (Images.length !== undefined) {
     return (
       <div className="ImageList">

@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @mixin tablet {
   @media screen and (min-width: 768px) {
     @content;
@@ -16,11 +18,12 @@
   border-radius: 1.2rem;
   padding-left: 1rem;
   background-color: black;
-  color: white;
+  color: black;
   outline: none;
   border: 2px solid black;
   margin-bottom: 0.5rem;
-
+  background-color: $input;
+  font-weight: 700;
   &:focus {
     border: solid 2px #0095f6;
   }
@@ -52,7 +55,7 @@
     background-color: #07c;
   }
   &:active {
-    background-color: #0064bd;
+    background-color: #020304;
     box-shadow: none;
   }
 }

@@ -41,7 +41,6 @@
 
 .input {
   @include input;
-  background-color: $primary;
 
   &:focus {
     border: solid 2px #0095f6;

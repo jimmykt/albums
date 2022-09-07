@@ -6,11 +6,16 @@ import { useSelector } from "react-redux";
 
 function ImageCard({ Image }) {
   const User = useSelector((state) => state.User);
-  console.log(User);
+  // const Images = useSelector((state) => state.images);
 
   const likedPhoto = () => {
+    const like = {
+      user_id: User.user_id,
+      image_id: Image.id,
+    };
+    console.log(like);
     axios
-      .post(API + "/images/addlike", Image.id)
+      .post(API + "/images/addlike", like)
       .then((res) => {
         console.log(res);
       })

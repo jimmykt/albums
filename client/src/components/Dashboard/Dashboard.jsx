@@ -5,6 +5,11 @@ import { isLogged } from "../../state/actions/userToggles";
 import { logOutUser } from "../../state/actions/User";
 import { Link } from "react-router-dom";
 
+// import { ID_API } from "../../api/pexels_API";
+// import { createClient } from "pexels";
+// import pexels from "../../api/pexels_API";
+import pexels from "../../api/pexels_API";
+
 function Header() {
   const dispatch = useDispatch();
   const User = useSelector((state) => state.User);
@@ -21,11 +26,18 @@ function Header() {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
   };
+
+  const displayLikedPhotos = async () => {
+    const response = await pexels.get(`/v1/photos/170811`);
+    console.log(response);
+  };
+
   return (
     <div className="dashboard">
       <div className="dashboard__container">
         <h1 className="dashboard__name">
-          {UpperCaseFirst(User.first_name)} {UpperCaseFirst(User.last_name)}{" "}
+          {UpperCaseFirst(User.first_name)} {UpperCaseFirst(User.last_name)}
+          {"'s "}
           Dashboard
         </h1>
         <Link to="/" className="link">
@@ -34,7 +46,9 @@ function Header() {
           </button>
         </Link>
       </div>
-      <button className="dashboard__button">Liked Photos</button>
+      <button className="dashboard__button" onClick={displayLikedPhotos}>
+        Liked Photos
+      </button>
     </div>
   );
 }
